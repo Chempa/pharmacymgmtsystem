@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<systemsetupcomplete>1</systemsetupcomplete>
+	<hostaddress>localhost</hostaddress>
+	<port>3306</port>
+	<username>pharmacy_admin</username>
+	<password>admin</password>
+	<name>NBX Pharmacy</name>
+	<postaddress>P.O.Box 000</postaddress>
+	<companylocation>Kumasi</companylocation>
+	<phone>0000000000</phone>
+</root>

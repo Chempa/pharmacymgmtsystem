@@ -1,0 +1,51 @@
+create Database pharmacy_db;
+use pharmacy_db;
+create table products(product_id int(5) Primary Key auto_increment, product char(30) NOT NULL,category char(20) NOT NULL,price decimal(20,2) NOT NULL,quantity int(5) NOT NULL);
+create table p_db_users(username char (14) primary key,admin int(1)not null, password varchar(20) not null,f_name char(15) not null,l_name char(15) not null, others char(15),address char (30) not null,gender char(6) not null);
+create table users_phone(phone_user char (14) not null,phone_number char(14) not null, foreign key(phone_user) references p_db_users(username));
+create table expenses(expense_id int(10) primary key auto_increment,cost decimal(20,2) not null,description text Not null, Date_time DateTime not null, issued_by_user char(14) not null, foreign key(issued_by_user) references p_db_users(username));
+create table invoice(invoice_id int (30) primary key auto_increment,date_time datetime not null,sale_income decimal(20,2) not null,invoice_content text not null, U_id char(14) not null, foreign key(U_id) references p_db_users(username));
+create table daily_sale(days_date date primary key, amount decimal(20,2) default '0.00');
+create table programdata(varname char(30) primary key, _value char(255));
+insert into p_db_users values('deletedusers','0','deletedusers','deletedusers','deletedusers','deletedusers','deletedusers','deletedusers');
+insert into p_db_users values('admin','1','admin','admin','admin','admin','admin','admin');
+insert into programdata values('printername',"");
+
+insert into products (product,category,price,quantity) values("Albendazole Tablet, 400 mg","Medicine","2.50","200");
+insert into products (product,category,price,quantity) values("Amino Acid Solution Injection","Medicine","24.75","200");
+insert into products (product,category,price,quantity) values("ECL Antacid Mixture","Medicine","20.0","200");
+insert into products (product,category,price,quantity) values("E-Panol","Medicine","13.0","200");
+insert into products (product,category,price,quantity) values("Enacef 125","Medicine","10.0","200");
+insert into products (product,category,price,quantity) values("Enaphage","Medicine","10.0","200");
+insert into products (product,category,price,quantity) values("Enoral","Medicine","18.0","200");
+insert into products (product,category,price,quantity) values("Envico","Medicine","15.0","200");
+insert into products (product,category,price,quantity) values("Fluxamox 250","Medicine","17.0","200");
+insert into products (product,category,price,quantity) values("Fluxamox 500","Medicine","21.0","200");
+insert into products (product,category,price,quantity) values("Gastrone Suspension","Medicine","1.0","200");
+insert into products (product,category,price,quantity) values("Glibenil","Medicine","9.0","200");
+insert into products (product,category,price,quantity) values("Histazine","Medicine","11.0","200");
+insert into products (product,category,price,quantity) values("Malar 2","Medicine","5.0","200");
+insert into products (product,category,price,quantity) values("Malar 2 Suspension","Medicine","7.0","200");
+insert into products (product,category,price,quantity) values("Fiesta Condom","Protective","70.0","200");
+insert into products (product,category,price,quantity) values("Kiss Condom","Protective","100.0","200");
+insert into products (product,category,price,quantity) values("Champion Condom","Protective","90.0","200");
+insert into products (product,category,price,quantity) values("Durex Condom","Protective","50.0","200");
+insert into products (product,category,price,quantity) values("Adutwumwaa Bitters","Herbal","39.0","200");
+insert into products (product,category,price,quantity) values("Ebetoda Bitters","Herbal","32.0","200");
+insert into products (product,category,price,quantity) values("Panadol 500mg","Medicine","1.50","200");
+insert into products (product,category,price,quantity) values("Amlodipine","Medicine","11.0","200");
+insert into products (product,category,price,quantity) values("Amoxicillin","Medicine","1.50","200");
+insert into products (product,category,price,quantity) values("Atorvastatin","Medicine","11.30","200");
+insert into products (product,category,price,quantity) values("Lyrica","Medicine","1.80","200");
+insert into products (product,category,price,quantity) values("Meloxicam","Medicine","17.0","200");
+insert into products (product,category,price,quantity) values("Azithromycin","Medicine","91.0","200");
+insert into products (product,category,price,quantity) values("Lorazepam","Medicine","81.0","200");
+insert into products (product,category,price,quantity) values("Ibuprofen","Medicine","41.0","200");
+insert into products (product,category,price,quantity) values("Tramadol","Medicine","16.0","200");
+insert into products (product,category,price,quantity) values("Omeprazole","Medicine","61.0","200");
+insert into products (product,category,price,quantity) values("Lisinopril","Medicine","12.0","200");
+
+
+
+create user 'pharmacy_admin'@'localhost' identified by 'admin';
+Grant all on pharmacy_db.*  to 'pharmacy_admin'@'localhost';
